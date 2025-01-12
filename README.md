@@ -26,8 +26,8 @@ sudo apt-get install -y python3-pip python3-venv ffmpeg
 
 3. Clone the repository:
 ```bash
-git clone https://your-repo-url/buyergpt.git
-cd buyergpt
+git clone https://github.com/Reynold97/shoppergpt.git
+cd shoppergpt
 ```
 
 ## Step 2: Python Environment Setup
@@ -63,22 +63,22 @@ TWILIO_NUMBER=your_twilio_number
 
 1. Create a systemd service file:
 ```bash
-sudo nano /etc/systemd/system/buyergpt.service
+sudo nano /etc/systemd/system/shoppergpt.service
 ```
 
 2. Add the following content (replace paths and user as needed):
 ```ini
 [Unit]
-Description=BuyerGPT WhatsApp Assistant
+Description=shoppergpt WhatsApp Assistant
 After=network.target
 
 [Service]
-User=your_username
-Group=your_username
-WorkingDirectory=/path/to/buyergpt
-Environment="PATH=/path/to/buyergpt/env/bin"
-EnvironmentFile=/path/to/buyergpt/.env
-ExecStart=/path/to/buyergpt/env/bin/uvicorn src.main:app --host 0.0.0.0 --port 8781
+User=root
+Group=root
+WorkingDirectory=/root/shoppergpt
+Environment="PATH=/root/shoppergpt/env/bin"
+EnvironmentFile=/root/shoppergpt/.env
+ExecStart=/root/shoppergpt/env/bin/uvicorn src.main:app --host 0.0.0.0 --port 8781
 
 Restart=always
 RestartSec=5
@@ -96,34 +96,34 @@ sudo systemctl daemon-reload
 
 2. Enable the service to start on boot:
 ```bash
-sudo systemctl enable buyergpt
+sudo systemctl enable shoppergpt
 ```
 
 3. Start the service:
 ```bash
-sudo systemctl start buyergpt
+sudo systemctl start shoppergpt
 ```
 
 4. Check service status:
 ```bash
-sudo systemctl status buyergpt
+sudo systemctl status shoppergpt
 ```
 
 ## Common Commands
 
 - Stop the service:
 ```bash
-sudo systemctl stop buyergpt
+sudo systemctl stop shoppergpt
 ```
 
 - Restart the service:
 ```bash
-sudo systemctl restart buyergpt
+sudo systemctl restart shoppergpt
 ```
 
 - View logs:
 ```bash
-sudo journalctl -u buyergpt -f
+sudo journalctl -u shoppergpt -f
 ```
 
 ## Twilio Configuration
@@ -151,13 +151,13 @@ If the service fails to start:
 
 1. Check the logs:
 ```bash
-sudo journalctl -u buyergpt -n 50
+sudo journalctl -u shoppergpt -n 50
 ```
 
 2. Verify permissions:
 ```bash
-ls -la /path/to/buyergpt
-ls -la /path/to/buyergpt/.env
+ls -la /root/shoppergpt
+ls -la /root/shoppergpt/.env
 ```
 
 3. Test the application manually:
