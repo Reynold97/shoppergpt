@@ -1,0 +1,15 @@
+fastapi==0.97.0
+langchain==0.0.198
+openai==0.27.4
+pydub==0.25.1
+pyshorteners==1.0.1
+python-decouple==3.8
+Requests==2.31.0
+SQLAlchemy==1.4.39
+streamlit==1.22.0
+streamlit_chat==0.0.2.2
+twilio==8.2.1
+uvicorn
+google-search-results
+python-multipart
+pyngrok 
